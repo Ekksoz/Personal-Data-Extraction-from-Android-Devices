@@ -295,7 +295,6 @@ Dans Terminal :
 
 - Utiliser commande abd + shell :
 ```adb shell``` + votre commande shell
-- Utiliser commande abd + shell :```adb shell``` + votre commande shell
 
 ---
 
