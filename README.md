@@ -231,8 +231,68 @@ Fonctions principales :
 - récupérer certains fichiers
 - exécuter des commandes sur l'appareil
 
-Exemples d’utilisation :
 
+# 1.1.1 Windows
+
+1. Télécharger les SDK Platform-Tools pour [Windows](https://developer.android.com/tools/releases/platform-tools?hl=fr)
+
+2. Extraire le fichier zip SDK
+
+3. Ajouter au PATH :
+
+    - Chercher "Modifier les variables d'environnement système" dans Windows.
+
+    - Aller dans Variables d'environnement.
+
+    - Dans "Variables système", ajouter le chemin de votre dossier (ex: C:\adb). 
+
+4. Pour vérifier, ouvrir un terminal (PowerShell ou CMD) et taper adb --version.
+
+# 1.1.2 MacOS
+
+**Via Homebrew :**
+Dans Terminal :
+```brew install --cask android-platform-tools```
+
+**Manuellement :**
+1. Télécharger les SDK Platform-Tools pour [Mac](https://developer.android.com/tools/releases/platform-tools?hl=fr)
+
+2. Extraire le dossier.
+
+3. Ajouter le chemin au profil Zsh :
+```echo 'export PATH=$PATH:/chemin/vers/votre/dossier/platform-tools' >> ~/.zshrc```
+```source ~/.zshrc```
+
+# 1.1.3 Linux
+
+```sudo apt update```
+```sudo apt install android-tools-adb android-tools-fastboot```
+
+# 1.2 Guide d'utilisation 
+
+# 1.2.1 Activer mod debug sur android
+
+- Aller dans Paramètres > À propos et taper 7 fois sur "Numéro de build".
+
+- Aller dans Paramètres > Système > Options pour les développeurs et cocher "Débogage USB".
+
+- Brancher le téléphone au PC. Une fenêtre s'ouvrira sur le téléphone demandant d'autoriser l'ordinateur. Cocher "Toujours" puis valider.
+
+# 1.2.2 
+
+- Activer mod debug sur le smatphone android
+
+- Vérifier la connexion avec : 
+```adb devices```
+
+- Passer en mode root : 
+```adb root```
+
+- Utiliser shell du système du smartphone : 
+```adb shell```
+
+- Utiliser commande abd + shell :
+```adb shell``` + votre commande shell
 
 
 # Partie 3 - Minilab OSINT
@@ -275,3 +335,4 @@ source ~/MINI_LAB_OSINT/venv/bin/activate
 | **Folium** | Créer des cartes interactives | [Folium](https://python-visualization.github.io/folium/) |
 | **NetworkX** | Créer et visualiser des graphes simples | [NetworkX](https://networkx.org/documentation/stable/) |
 | **python-whois** | Récupérer info domaine/IP | [PyPI](https://pypi.org/project/python-whois/) |
+# 1.1 Guide d'installation
