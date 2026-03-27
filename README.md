@@ -222,7 +222,7 @@ Les données récupérées peuvent inclure :
 
 # 1. Android Debug Bridge (ADB)
 
-ADB est un outil officiel permettant de communiquer avec un appareil Android via USB ou réseau.
+ADB est un outil officiel permettant de communiquer avec un appareil Android via USB ou réseau et essentiel pour utiliser l'outil d'extraction de donner de ce projet.
 
 Fonctions principales :
 
@@ -295,6 +295,20 @@ Dans Terminal :
 
 - Utiliser commande abd + shell :
 ```adb shell``` + votre commande shell
+
+# 2 extract_data.py
+
+extract_data.py est le sccript python et l'outil principal de ce projet permettant d'extraire les données d'un smatphone android. 
+
+Les données récupérer sont : 
+- Les fiches contacts.
+- Les conversation sms.
+- Tous les fichiers contenues dans le répertoire principale du système.
+
+***Utilisation***
+- Activer le mode debug du smartphone 
+- Vérifier la connexion adb en accès root avec le smartphone 
+- Lancer l'outil : ```python extract_data.python```
 
 ---
 
