@@ -246,12 +246,13 @@ Fonctions principales :
 
     - Dans "Variables système", ajouter le chemin de votre dossier (ex: C:\adb). 
 
-4. Pour vérifier, ouvrir un terminal (PowerShell ou CMD) et taper adb --version.
+4. Pour vérifier, ouvrir un terminal (PowerShell ou CMD) et taper : ```adb --version```.
 
 # 1.1.2 MacOS
 
 **Via Homebrew :**
 Dans Terminal :
+
 ```brew install --cask android-platform-tools```
 
 **Manuellement :**
@@ -260,12 +261,15 @@ Dans Terminal :
 2. Extraire le dossier.
 
 3. Ajouter le chemin au profil Zsh :
+
 ```echo 'export PATH=$PATH:/chemin/vers/votre/dossier/platform-tools' >> ~/.zshrc```
+
 ```source ~/.zshrc```
 
 # 1.1.3 Linux
 
 ```sudo apt update```
+
 ```sudo apt install android-tools-adb android-tools-fastboot```
 
 # 1.2 Guide d'utilisation 
@@ -282,18 +286,15 @@ Dans Terminal :
 
 - Activer mod debug sur le smatphone android
 
-- Vérifier la connexion avec : 
-```adb devices```
+- Vérifier la connexion avec : ```adb devices```
 
-- Passer en mode root : 
-```adb root```
+- Passer en mode root : ```adb root```
 
-- Utiliser shell du système du smartphone : 
-```adb shell```
+- Utiliser shell du système du smartphone : ```adb shell```
 
 - Utiliser commande abd + shell :
 ```adb shell``` + votre commande shell
-
+- Utiliser commande abd + shell :```adb shell``` + votre commande shell
 
 # Partie 3 - Minilab OSINT
 
@@ -336,3 +337,4 @@ source ~/MINI_LAB_OSINT/venv/bin/activate
 | **NetworkX** | Créer et visualiser des graphes simples | [NetworkX](https://networkx.org/documentation/stable/) |
 | **python-whois** | Récupérer info domaine/IP | [PyPI](https://pypi.org/project/python-whois/) |
 # 1.1 Guide d'installation
+
