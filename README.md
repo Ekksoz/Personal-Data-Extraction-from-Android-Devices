@@ -12,6 +12,7 @@ Le projet est donc divisé en deux parties principales :
 
 - **Partie 1 : Recherche OSINT à partir des informations collectées**
 - **Partie 2 : Extraction et analyse des données d’un téléphone Android**
+- **Partie 3 : Minilab OSINT pour faire des recherches**
 
 ⚠️ Les méthodes présentées dans ce projet doivent être utilisées **dans un cadre légal et éthique**, notamment dans les domaines :
 
@@ -23,7 +24,7 @@ Le projet est donc divisé en deux parties principales :
 ---
 
 
-# Partie 1 — Recherche OSINT à partir d'informations trouvées sur un téléphone
+# Partie 1 - Recherche OSINT à partir d'informations trouvées sur un téléphone
 
 Lorsqu'un téléphone est analysé, plusieurs types d'informations peuvent être retrouvées :
 
@@ -200,7 +201,7 @@ L'OSINT Framework est un répertoire regroupant **des centaines d’outils OSINT
 
 ---
 
-# Partie 2 — Extraction de données à partir d’un téléphone Android
+# Partie 2 - Extraction de données à partir d’un téléphone Android
 
 L'analyse d'un téléphone Android permet d'extraire de nombreuses informations qui peuvent ensuite être analysées dans le cadre d'une investigation numérique.
 
@@ -231,3 +232,46 @@ Fonctions principales :
 - exécuter des commandes sur l'appareil
 
 Exemples d’utilisation :
+
+
+
+# Partie 3 - Minilab OSINT
+
+Ce mini-lab OSINT est un environnement Python léger pour effectuer des recherches publiques sur des utilisateurs, adresses e-mail ou numéros de téléphone.
+Il inclut des outils gratuits et simples à utiliser, ainsi que des bibliothèques Python pour analyser et visualiser les données collectées.
+
+
+
+---
+
+### Installation
+
+1. **Exécuter le script d'installation**
+
+```bash
+bash lab.sh
+```
+
+2. **Activer l'environnement**
+
+```bash
+source ~/MINI_LAB_OSINT/venv/bin/activate
+```
+
+---
+
+### Outils inclus et documentation
+
+| Outil | Description | Documentation |
+|---|---|---|
+| **Maigret** | Recherche un pseudonyme sur +500 sites | [GitHub](https://github.com/soxoj/maigret) |
+| **Sherlock** | Recherche de comptes sur les réseaux sociaux | [GitHub](https://github.com/sherlock-project/sherlock) |
+| **Holehe** | Vérifie si une adresse e-mail existe sur des services en ligne | [GitHub](https://github.com/megadose/holehe) |
+| **PhoneInfoga** | Recherche OSINT sur un numéro de téléphone | [GitHub](https://github.com/sundowndev/phoneinfoga) |
+| **googlesearch-python** | Automatisation des recherches Google | [PyPI](https://pypi.org/project/googlesearch-python/) |
+| **Requests** | Faire des requêtes HTTP simples | [Docs Requests](https://requests.readthedocs.io/) |
+| **BeautifulSoup4** | Extraire et parser du contenu HTML | [Docs BeautifulSoup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/) |
+| **Pandas** | Manipuler et analyser CSV/JSON | [Pandas](https://pandas.pydata.org/docs/) |
+| **Folium** | Créer des cartes interactives | [Folium](https://python-visualization.github.io/folium/) |
+| **NetworkX** | Créer et visualiser des graphes simples | [NetworkX](https://networkx.org/documentation/stable/) |
+| **python-whois** | Récupérer info domaine/IP | [PyPI](https://pypi.org/project/python-whois/) |
