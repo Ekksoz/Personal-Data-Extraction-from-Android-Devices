@@ -231,6 +231,7 @@ Fonctions principales :
 - récupérer certains fichiers
 - exécuter des commandes sur l'appareil
 
+# 1.1 Guide d'installation
 
 # 1.1.1 Windows
 
@@ -296,6 +297,8 @@ Dans Terminal :
 ```adb shell``` + votre commande shell
 - Utiliser commande abd + shell :```adb shell``` + votre commande shell
 
+---
+
 # Partie 3 - Minilab OSINT
 
 Ce mini-lab OSINT est un environnement Python léger pour effectuer des recherches publiques sur des utilisateurs, adresses e-mail ou numéros de téléphone.
@@ -336,5 +339,5 @@ source ~/MINI_LAB_OSINT/venv/bin/activate
 | **Folium** | Créer des cartes interactives | [Folium](https://python-visualization.github.io/folium/) |
 | **NetworkX** | Créer et visualiser des graphes simples | [NetworkX](https://networkx.org/documentation/stable/) |
 | **python-whois** | Récupérer info domaine/IP | [PyPI](https://pypi.org/project/python-whois/) |
-# 1.1 Guide d'installation
+
 
