@@ -303,6 +303,7 @@ extract_data.py est le sccript python et l'outil principal de ce projet permetta
 Les données récupérer sont : 
 - Les fiches contacts.
 - Les conversation sms.
+- L'historique des appels.
 - Tous les fichiers contenues dans le répertoire principale du système.
 
 ***Utilisation***

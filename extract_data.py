@@ -3,7 +3,7 @@ import os
 import re
 from datetime import datetime
 
-OUTPUT_DIR = "EXTRACT_PHONE"
+OUTPUT_DIR = "EXTRACTED_DATA"
 CONTACTS_SUBDIR = os.path.join(OUTPUT_DIR, "CONTACTS")
 SMS_SUBDIR = os.path.join(OUTPUT_DIR, "SMS")
 
@@ -17,6 +17,15 @@ MIME_TYPES = {
     "vnd.android.cursor.item/contact_event": "Evenement (Anniversaire/Autre)",
     "vnd.android.cursor.item/website": "Site Web",
     "vnd.android.cursor.item/nickname": "Pseudo"
+}
+
+CALL_TYPES = {
+    "1": "ENTRANT",
+    "2": "SORTANT",
+    "3": "MANQUE",
+    "4": "VOICEMAIL",
+    "5": "REJETE",
+    "6": "BLOQUE"
 }
 
 # Fonction pour executer les commandes ADB
@@ -106,6 +115,47 @@ def extract_and_sort_sms():
                 f.write("\n".join(msgs))
     print(f"Extraction SMS terminée")
 
+# Nouvelle fonction pour l'historique des appels
+def extract_call_logs():
+    print("Extraction de l'historique des appels")
+    uri = "content://call_log/calls"
+    # On recupere le numero, le nom, la date, la duree et le type d'appel
+    cmd = f"adb shell content query --uri {uri} --projection number:name:date:duration:type"
+    result = run_cmd(cmd)
+    
+    calls_list = []
+    if result.stdout:
+        for line in result.stdout.splitlines():
+            if "Row:" in line:
+                num_match = re.search(r"number=([^,]+)", line)
+                name_match = re.search(r"name=([^,]+)", line)
+                date_match = re.search(r"date=([^,]+)", line)
+                dur_match = re.search(r"duration=([^,]+)", line)
+                type_match = re.search(r"type=([^,]+)", line)
+                
+                if num_match and date_match:
+                    num = num_match.group(1).strip()
+                    name = name_match.group(1).strip() if name_match else "Inconnu"
+                    duration = dur_match.group(1).strip() if dur_match else "0"
+                    raw_date = date_match.group(1).strip()
+                    call_type_id = type_match.group(1).strip() if type_match else "0"
+                    
+                    try:
+                        dt_object = datetime.fromtimestamp(int(raw_date) / 1000.0)
+                        readable_date = dt_object.strftime('%d/%m/%Y %H:%M:%S')
+                    except:
+                        readable_date = "Date inconnue"
+                    
+                    type_str = CALL_TYPES.get(call_type_id, "AUTRE")
+                    calls_list.append(f"[{readable_date}] {type_str} - Num: {num} ({name}) - Duree: {duration}s")
+
+        # Sauvegarde dans un fichier unique trié par date
+        calls_list.sort()
+        with open(os.path.join(OUTPUT_DIR, "CALL_HISTORY.txt"), "w", encoding="utf-8") as f:
+            f.write("HISTORIQUE DES APPELS\n" + "="*50 + "\n\n")
+            f.write("\n".join(calls_list))
+    print("Extraction appels terminee")
+
 # Recuperation des fichiers multimedia et documents (SDCard)
 def pull_files():
     folders = ["/sdcard/DCIM", "/sdcard/Download", "/sdcard/Recordings", "/sdcard/Documents"]
@@ -119,6 +169,7 @@ def main():
     setup()
     extract_and_sort_contacts()
     extract_and_sort_sms()
+    extract_call_logs()
     pull_files()
     print(f"Extraction terminée à 100% !")
 
